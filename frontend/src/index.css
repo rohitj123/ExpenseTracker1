@@ -1,0 +1,338 @@
+@import "tailwindcss";
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  min-width: 320px;
+  background:
+    radial-gradient(circle at top left, rgba(99, 102, 241, 0.12), transparent 28rem),
+    radial-gradient(circle at bottom right, rgba(16, 185, 129, 0.10), transparent 30rem),
+    #f8fafc;
+  background-size: 120% 120%;
+  animation: ambientShift 12s ease-in-out infinite alternate;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+button,
+a,
+input,
+select,
+textarea {
+  transition:
+    background-color 180ms ease,
+    border-color 180ms ease,
+    color 180ms ease,
+    box-shadow 180ms ease,
+    transform 180ms ease;
+}
+
+button:hover {
+  transform: translateY(-1px);
+}
+
+button:active,
+a:active {
+  transform: translateY(0) scale(0.98);
+}
+
+input,
+select,
+textarea {
+  background-color: rgba(255, 255, 255, 0.96);
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  transform: translateY(-1px);
+  box-shadow: 0 12px 28px rgba(79, 70, 229, 0.10);
+}
+
+::selection {
+  background: #c7d2fe;
+  color: #111827;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #eef2ff;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #a5b4fc;
+  border-radius: 999px;
+  border: 2px solid #eef2ff;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #818cf8;
+}
+
+@keyframes pageFadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes ambientShift {
+  from {
+    background-position: 0% 0%;
+  }
+  to {
+    background-position: 100% 100%;
+  }
+}
+
+@keyframes fadeScale {
+  from {
+    opacity: 0;
+    transform: scale(0.96) translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fillWidth {
+  from {
+    width: 0;
+  }
+}
+
+@keyframes fillHeight {
+  from {
+    height: 0;
+  }
+}
+
+@keyframes growY {
+  from {
+    transform: scaleY(0);
+  }
+  to {
+    transform: scaleY(1);
+  }
+}
+
+@keyframes floatSoft {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+@keyframes rotatePop {
+  0% {
+    transform: rotate(0) scale(1);
+  }
+  50% {
+    transform: rotate(-8deg) scale(1.08);
+  }
+  100% {
+    transform: rotate(0) scale(1);
+  }
+}
+
+@keyframes pieReveal {
+  from {
+    clip-path: circle(0% at 50% 50%);
+    transform: rotate(-24deg) scale(0.92);
+  }
+  to {
+    clip-path: circle(75% at 50% 50%);
+    transform: rotate(0) scale(1);
+  }
+}
+
+@keyframes softPulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.62;
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.page-enter {
+  animation: pageFadeUp 420ms ease both;
+}
+
+.motion-card {
+  animation: fadeScale 520ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.slide-left {
+  animation: slideInLeft 520ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.slide-right {
+  animation: slideInRight 520ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.animate-width {
+  animation: fillWidth 850ms cubic-bezier(0.22, 1, 0.36, 1) both;
+  transform-origin: left center;
+}
+
+.animate-height {
+  animation: growY 850ms cubic-bezier(0.22, 1, 0.36, 1) both;
+  transform-origin: bottom center;
+}
+
+.float-soft {
+  animation: floatSoft 3.8s ease-in-out infinite;
+}
+
+.pie-reveal {
+  animation: pieReveal 900ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.icon-pop:hover svg,
+button:hover svg,
+a:hover svg {
+  animation: rotatePop 420ms ease;
+}
+
+.soft-pulse {
+  animation: softPulse 1.8s ease-in-out infinite;
+}
+
+.shimmer {
+  background: linear-gradient(90deg, #f8fafc 25%, #eef2ff 37%, #f8fafc 63%);
+  background-size: 400% 100%;
+  animation: shimmer 1.4s ease infinite;
+}
+
+main section > div,
+main article,
+main form {
+  animation: pageFadeUp 480ms ease both;
+  transition:
+    transform 220ms ease,
+    box-shadow 220ms ease,
+    border-color 220ms ease,
+    background-color 220ms ease;
+}
+
+main section > div:nth-child(2) {
+  animation-delay: 40ms;
+}
+
+main section > div:nth-child(3) {
+  animation-delay: 80ms;
+}
+
+main section > div:nth-child(4) {
+  animation-delay: 120ms;
+}
+
+main article:hover,
+main form:hover,
+main section > div.rounded-lg:hover {
+  transform: translateY(-4px) scale(1.005);
+  box-shadow: 0 22px 55px rgba(15, 23, 42, 0.10);
+}
+
+.stagger-list > * {
+  animation: pageFadeUp 480ms ease both;
+}
+
+.stagger-list > *:nth-child(1) {
+  animation-delay: 40ms;
+}
+
+.stagger-list > *:nth-child(2) {
+  animation-delay: 80ms;
+}
+
+.stagger-list > *:nth-child(3) {
+  animation-delay: 120ms;
+}
+
+.stagger-list > *:nth-child(4) {
+  animation-delay: 160ms;
+}
+
+.stagger-list > *:nth-child(5) {
+  animation-delay: 200ms;
+}
+
+.stagger-list > *:nth-child(6) {
+  animation-delay: 240ms;
+}
+
+.stagger-list > *:nth-child(n + 7) {
+  animation-delay: 280ms;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 1ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 1ms !important;
+  }
+
+  button:hover,
+  main article:hover,
+  main form:hover,
+  main section > div.rounded-lg:hover {
+    transform: none;
+  }
+
+  body {
+    animation: none;
+  }
+}
